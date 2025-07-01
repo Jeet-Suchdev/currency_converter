@@ -29,6 +29,10 @@ function App() {
     setConvertedAmount("");
   }, [from, to]);
 
+  useEffect(() => {
+    setConvertedAmount("");
+  }, [amount]);
+
   return (
     <div
       className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat bg-center relative"
@@ -47,6 +51,7 @@ function App() {
               e.preventDefault();
               if (isNaN(amount) || amount < 0) {
                 alert("Please enter a valid amount");
+                setAmount("");
                 return;
               }
               convert();
